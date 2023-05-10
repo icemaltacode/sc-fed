@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Module 1, Unit 5</title>
+    </head>
+    <body>
+        <h1>Unit 5</h1>
+
+        <div id="messageArea">
+        </div>
+
+        <div id="area1">This is a DIV with id: area1.</div>
+        <div class="area2">This is a DIV with class: area2.</div>
+        <p>This is a paragraph.</p>
+        <div id="area3">
+            This is a DIV with id: area3. It contains two paragraphs.
+            <p>I am the first paragraph.</p>
+            <p>I am the second paragraph.</p>
+        </div>
+
+        <div id="artefactHunter">
+            <div id="entrance">
+                <div id="door"></div>
+                <div id="mysteriousButton"></div>
+            </div>
+            <div id="chamber1">
+                <div id="chamber1-left" data-leads-to="chamber2"></div>
+                <div id="chamber1-right" data-leads-to="chamber3"></div>
+                <div id="fountain"></div>
+            </div>
+            <div id="chamber2">
+                <div id="imp"></div>
+                <div id="lockedChest">
+                    <div id="artefact-of-earth" data-msg="Artefact Found!"></div>
+                </div>
+            </div>
+            <div id="chamber3">
+                <div id="soldier"></div>
+                <div id="key" data-opens="artefact-of-earth" data-msg="Key Found!"></div>
+            </div>
+        </div>
+
+        <div id="clickMe" style="border: 1px solid black; width: 300px; height: 50px;" onclick="clickMe(this)">
+            Click Me!
+        </div>
+
+        <div id="clickMe2" style="border: 1px solid navy; width: 300px; height: 50px;" onclick="clickMe(this)">
+            No, Click Me!
+        </div>
+
+        <style>
+            .buttonState1 {
+                border: 1px solid black;
+                text-align: center;
+                width: 300px;
+                height: 50px;
+                margin-top: 10px;
+                background-color: beige;
+            }
+            .buttonState2 {
+                border: 1px solid black;
+                text-align: center;
+                width: 300px;
+                height: 50px;
+                margin-top: 10px;
+                background-color: aliceblue;
+            }
+        </style>
+        <div id="statefulButton" class="buttonState1" onclick="handleButton(this)">Click Me</div>
+
+        <style>
+            .colorArea {
+                width: 400px;
+                height: 300px;
+                background-color: violet;
+            }
+        </style>
+        <button type="button" id="btnChangeColor">Change Colour</button>
+        <div id="colorArea" class="colorArea"></div>
+
+        <script src="js/index.js"></script>
+    </body>
+</html>
