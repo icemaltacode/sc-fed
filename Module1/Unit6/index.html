@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Module 1, Unit 6</title>
+    </head>
+    <body>
+        <h1>Unit 6</h1>
+
+        <div id="messageArea">
+        </div>
+
+        <h2>Regex Phrases</h2>
+        <ul id="phraseList">
+
+        </ul>
+        <form id="regexForm">
+            <label for="regex">Regex:</label>
+            <input type="text" id="regex">
+            <input type="submit" value="Submit">
+            <input type="reset" id="resetRegex">
+        </form>
+
+        <form id="findAndReplaceForm">
+            <label for="find">Find:</label>
+            <input type="text" id="find">
+            <label for="replace">Replace:</label>
+            <input type="text" id="replace">
+            <input type="submit" value="Submit">
+            <input type="reset" id="resetFR">
+        </form>
+
+        <form id="cookieForm">
+            <div>Current favourite color: <span id="currentFavColor">Not Set</span></div>
+            <label for="favColor">Favourite Colour:</label>
+            <input type="text" id="favColor">
+            <input type="submit" value="Set">
+        </form>
+
+        <form id="localStorageForm">
+            <div>Message of the day: <span id="currentMessage">Not Set</span></div>
+            <label for="message">Message of the day:</label>
+            <input type="text" id="message">
+            <input type="submit" value="Set">
+        </form>
+
+        <h2>Add Contact</h2>
+
+        <table id="contactList">
+            <thead>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>City</th>
+                <th>Country</th>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+        
+        <form id="jsonForm">
+            <label for="personName">Name:</label>
+            <input type="text" id="personName" required><br>
+            <label for="personSurname">Surname:</label>
+            <input type="text" id="personSurname" required><br>
+            <label for="personEmail">Email:</label>
+            <input type="email" id="personEmail" required><br>
+            <label for="personAddress1">Address 1:</label>
+            <input type="text" id="personAddress1" required><br>
+            <label for="personAddress2">Address 2:</label>
+            <input type="text" id="personAddress2"><br>
+            <label for="personCity">City:</label>
+            <input type="text" id="personCity" required><br>
+            <label for="personCountry">Country:</label>
+            <input type="text" id="personCountry" required><br>
+            <input type="submit" value="Add">
+        </form>
+
+        <script src="js/index.js"></script>
+    </body>
+</html>
+
