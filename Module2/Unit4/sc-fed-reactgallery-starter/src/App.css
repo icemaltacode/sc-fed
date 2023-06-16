@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:500);html{font-size:62.5%;text-rendering:optimizeLegibility}.xopixel-header{background:#4d4d4d;text-align:center;width:100%;height:auto;padding:2rem 0 1rem;font-size:1.8rem;line-height:1.3; margin-bottom:4em;}.xopixel-header nav a{display:inline-flex;flex-flow:row;position:relative;width:2.5em;height:2.5em;border-radius:50%;margin:0 1rem;border:4px solid #ff7bac;color:#ff7bac;text-decoration:none;transition:all .2s ease-in-out}.xopixel-header h1{font-family:'Source Code Pro',monospace;color:#fff;font-size:2rem;font-weight:100;text-transform:uppercase;letter-spacing:.08rem;}.xopixel-archive::after,.xopixel-back::after{font-family:"Font Awesome 5 Free"}.xopixel-archive::after{content:"\f004"}.xopixel-back::after{content:"\f060"}.xopixel-archive::after,.xopixel-back::after{display:block;position:absolute;font-size:1.8rem;width:100%;height:100%;line-height:2}.xopixel-archive:hover,.xopixel-back:hover{color:#fff;background-color:#ff7bac}@media screen and (min-width:600px){.xopixel-header{display:flex;align-items:center;width:100%;height:100px;padding:2rem}}
+
+html{box-sizing:border-box}*,::after,::before{box-sizing:inherit}:root{-moz-tab-size:4;tab-size:4}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'}hr{height:0}abbr[title]{text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:SFMono-Regular,Consolas,'Liberation Mono',Menlo,Courier,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;appearance:button;}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{padding:0}progress{vertical-align:baseline}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}
+
+body {
+	background: #f0f0f0;
+}
+.xop-section {
+	font-family: 'Maven Pro', sans-serif;
+	font-weight: 500;
+	font-size: 1.6rem;
+	line-height: 1.3;
+    margin: 0 0 4em;
+}
+.project {
+    display: block;
+	width: 100%;
+	text-decoration: none;
+	margin: 1em 0;
+    cursor: pointer;
+}
+figure {
+	margin: 0;
+	padding: 0;
+}
+.project figure img {
+	width: 100%;
+	display: block;
+	object-fit: cover;
+	height: 300px;
+}
+.project figcaption {
+	padding: 1em;
+	background: #966116;
+	color: #fff;
+}
+.project h3 {
+	color: white;
+	margin: 0;
+}
+.cta {
+	margin: .5em 0;
+}
+.cta:after {
+	content: '\f061';
+	font-family: "Font Awesome 5 Free";
+	display: inline-flex;
+	margin: 0 0 .5em .5em;
+}
+
+/*
+
+When the browser is 960px or larger.
+
+*/
+
+@media screen and (min-width: 960px) {
+	.xop-wrapper {
+		max-width: 960px;
+		margin: 0 auto;
+	}
+	.xop-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 1em;
+	}
+	.project:nth-child(1) {
+		grid-column: 1 / span 3;
+	}
+	.project {
+		width: 100%;
+		height: 300px;
+		text-decoration: none;
+        margin: 0;
+	}
+	.project figure {
+		position: relative;
+        overflow: hidden;
+	}
+	.project figure img {
+		position: relative;
+        z-index: 999;
+        transition: transform 0.4s;
+	}
+	.project figure:hover img {
+		transform: translateY(-90px);
+	}
+
+	.project figcaption {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		padding: 20px;
+		height: 90px;
+		width: 100%;
+	}
+}
