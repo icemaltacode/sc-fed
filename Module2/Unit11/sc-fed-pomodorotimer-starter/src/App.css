@@ -1,0 +1,80 @@
+body {
+  background-color: #ba4949;
+}
+
+/* Countdown Timer */
+.timerClock {
+  text-align: center;
+}
+
+/* Tasks */
+.addTaskButton {
+  display: flex;
+  background-color: #a74241;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.8);
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  gap: 5px;
+}
+.addTaskButton:hover {
+  background-color: #ba4949;
+  cursor: pointer;
+}
+
+.startTimerButton {
+  display: flex;
+  background-color: #88C057;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.8);
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  gap: 5px;
+  margin-top: 5px;
+}
+.startTimerButton:hover {
+  background-color: #97d660;
+  cursor: pointer;
+}
+
+.addTask {
+  display: block;
+  background-color: #88C057;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+}
+.addTask label {
+  font-weight: bold;
+}
+.addTask .form-text {
+  font-size: 9pt;
+  font-style: italic;
+}
+.addTaskButtons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+  height: 100%;
+  gap: 10px;
+}
+
+.task {
+  display: flex;
+  min-height: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px 0 5px 0;
+  padding: 5px;
+}
+.complete {
+  text-decoration: line-through;
+}
+.active {
+  background-color: #88C057;
+}
