@@ -1,70 +1,49 @@
-import { useState, useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import { v4 as uuid } from "uuid";
-
+import { produce } from "immer";
+import useReduction from "use-reduction";
 import DataContext from "./DataContext";
-
-const STORAGE_KEY = "100-things-context";
-
+const STORAGE_KEY = "100-things-reducer";
 const INITIAL_STATE = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
   things: [],
   currentThing: null,
 };
-
+const reducers = {
+  seeThing: produce((draft, {payload: newThing}) => {
+    draft.currentThing = newThing;
+  }),
+  seeAllThings: produce((draft) => {
+    draft.currentThing = null;
+  }),
+  addThing: produce((draft, {payload: name}) => {
+    draft.things.push({ id: uuid(), name, done: [] });
+  }),
+  removeThing: produce((draft, {payload: id}) => {
+    const index = draft.things.findIndex((thing) => thing.id === id);
+    if (index !== -1) {
+      draft.things.splice(index, 1);
+      if (id === draft.currentThing) {
+        draft.currentThing = null;
+      }
+    }
+  }),
+  doThing: produce((draft, {payload: id}) => {
+    const thing = draft.things.find((thing) => thing.id === id);
+    thing.done.push(Date.now());
+  }),
+  undoThing: produce((draft, {payload: {id, index}}) => {
+    const thing = draft.things.find((thing) => thing.id === id);
+    thing.done.splice(index, 1);
+  }),
+};
 function DataProvider({ children }) {
-  const [things, setThings] = useState(INITIAL_STATE.things);
-  const [currentThing, setCurrentThing] = useState(INITIAL_STATE.currentThing);
+  const [state, actions] = useReduction(INITIAL_STATE, reducers);
   useEffect(
-    () =>
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({ things, currentThing })
-      ),
-    [things, currentThing]
+    () => localStorage.setItem(STORAGE_KEY, JSON.stringify(state)),
+    [state]
   );
-  const addThing = useCallback(
-    (name) => setThings((ts) => ts.concat([{ id: uuid(), name, done: [] }])),
-    []
-  );
-  const seeThing = setCurrentThing;
-  const seeAllThings = useCallback(() => setCurrentThing(null), []);
-  const editThing = useCallback(
-    (id, cb) =>
-      setThings((ts) =>
-        ts.map((t) => (t.id === id ? { ...t, done: cb(t.done) } : t))
-      ),
-    []
-  );
-  const removeThing = useCallback((id) => {
-    setThings((ts) => ts.filter((t) => t.id !== id));
-    setCurrentThing((cur) => (cur === id ? null : cur));
-  }, []);
-  const doThing = useCallback(
-    (id) => editThing(id, (done) => done.concat(Date.now())),
-    [editThing]
-  );
-  const undoThing = useCallback(
-    (id, index) =>
-      editThing(id, (done) =>
-        done.slice(0, index).concat(done.slice(index + 1))
-      ),
-    [editThing]
-  );
-  const value = {
-    state: {
-      things,
-      currentThing,
-    },
-    actions: {
-      addThing,
-      seeThing,
-      seeAllThings,
-      doThing,
-      undoThing,
-      removeThing,
-    },
-  };
-
+  const value = { state, actions };
+ 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 }
-
 export default DataProvider;

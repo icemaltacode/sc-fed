@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from "use-context-selector";
 
-const DataContext = createContext({ state: {}, actions: {} });
+const DataContext = createContext({});
 export default DataContext;

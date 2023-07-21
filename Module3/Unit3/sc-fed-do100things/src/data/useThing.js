@@ -1,11 +1,10 @@
 import useData from "./useData";
 
 function useThing(id) {
-  const {
-    state: { things },
-    actions: { seeThing, seeAllThings, doThing, undoThing, removeThing },
-  } = useData();
-  const thing = things.find((t) => t.id === id);
+  const { seeThing, seeAllThings, doThing, undoThing, removeThing } = useData(
+    ({ actions }) => actions
+  );
+  const thing = useData(({ state }) => state.things.find((t) => t.id === id));
   return {
     thing,
     seeThing: () => seeThing(id),
