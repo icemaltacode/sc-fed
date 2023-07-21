@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { useThing } from "../data";
+import { useThisThing } from "../data";
 import Button from "./Button";
 import RemoveButton from "./RemoveButton";
 import Grid from "./Grid";
@@ -66,7 +66,7 @@ function SingleThing({ id }) {
     removeThing,
     undoLastThing,
     undoThing,
-  } = useThing(id);
+  } = useThisThing(id);
   return (
     <Main>
       <Header>

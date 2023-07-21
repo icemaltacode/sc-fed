@@ -1,7 +1,8 @@
-import useData from "./useData";
+import useSend from "./useSend";
 
 function useAddThing() {
-  return useData((state) => state.addThing);
+  const send = useSend();
+  return (name) => send({ type: "ADD", name });
 }
 
 export default useAddThing;

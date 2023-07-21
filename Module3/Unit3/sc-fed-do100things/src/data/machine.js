@@ -1,4 +1,5 @@
 import { createMachine } from "xstate";
+
 import {
   doThatThing,
   undoThatThing,
@@ -9,6 +10,7 @@ import {
   seeAllThings,
   addThing,
 } from "./actions";
+
 const machine = createMachine(
   {
     id: "100-things",

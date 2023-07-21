@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { useThing } from "../data";
+import { useThatThing } from "../data";
 import Button from "./Button";
 import Progress from "./Progress";
 import ThingTitle from "./ThingTitle";
@@ -24,7 +24,7 @@ const Body = styled.div`
 `;
 
 function Thing({ id }) {
-  const { thing, seeThing, doThing, undoLastThing } = useThing(id);
+  const { thing, seeThing, doThing, undoLastThing } = useThatThing(id);
   return (
     <Section>
       <ThingTitle
