@@ -1,7 +1,9 @@
-import useData from "./useData";
+import { actions } from "./store";
+import { useDispatch } from "react-redux";
 
 function useAddThing() {
-  return useData(({ actions }) => actions.addThing);
+  const dispatch = useDispatch();
+  return (name) => dispatch(actions.addThing(name));
 }
 
 export default useAddThing;

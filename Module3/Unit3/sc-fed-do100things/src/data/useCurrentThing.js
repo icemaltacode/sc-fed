@@ -1,7 +1,7 @@
 import useData from "./useData";
 
 function useCurrentThing() {
-  return useData(({ state }) => state.currentThing);
+  return useData((store) => store.data.currentThing);
 }
 
 export default useCurrentThing;

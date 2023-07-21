@@ -1,8 +1,7 @@
-import { useContextSelector } from "use-context-selector";
-import DataContext from "./DataContext";
+import { useSelector } from "react-redux";
 
 function useData(selector) {
-  return useContextSelector(DataContext, selector);
+  return useSelector(selector);
 }
 
 export default useData;

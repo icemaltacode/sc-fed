@@ -14,6 +14,7 @@ const Main = styled.main`
 
 function AllThings() {
   const things = useAllThings();
+  console.log(things);
   return (
     <Main>
       <h1>All my things</h1>
