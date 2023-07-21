@@ -4,11 +4,12 @@ import { produce } from "immer";
 
 export const STORAGE_KEY = "100-things-redux";
 
-const getInitialThings = () =>
-  JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+const getInitialThings = () => {
+  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
     things: [],
     currentThing: null,
   };
+}
 
 const reducers = {
   seeThing: produce((draft, { payload: newThing }) => {
