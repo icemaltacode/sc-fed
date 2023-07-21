@@ -1,19 +1,26 @@
+import { shallow } from "zustand/shallow";
 import useData from "./useData";
-import { actions } from "./store";
-import { useDispatch } from "react-redux";
 
 function useThing(id) {
-  const thing = useData((store) => store.data.things.find((t) => t.id === id));
-  const dispatch = useDispatch();
+  const thing = useData((state) => state.things.find((t) => t.id === id));
+  const { seeThing, seeAllThings, doThing, undoThing, removeThing } = useData(
+    ({ seeThing, seeAllThings, doThing, undoThing, removeThing }) => ({
+      seeThing,
+      seeAllThings,
+      doThing,
+      undoThing,
+      removeThing,
+    }),
+    shallow
+  );
   return {
     thing,
-    seeThing: () => dispatch(actions.seeThing(id)),
-    removeThing: () => dispatch(actions.removeThing(id)),
-    doThing: () => dispatch(actions.doThing(id)),
-    seeAllThings: () => dispatch(actions.seeAllThings()),
-    undoThing: (index) => dispatch(actions.undoThing({ id, index })),
-    undoLastThing: () =>
-      dispatch(actions.undoThing({ id, index: thing.done.length - 1 })),
+    seeThing: () => seeThing(id),
+    removeThing: () => removeThing(id),
+    doThing: () => doThing(id),
+    seeAllThings,
+    undoThing: (index) => undoThing(id, index),
+    undoLastThing: () => undoThing(id, thing.done.length - 1),
   };
 }
 
