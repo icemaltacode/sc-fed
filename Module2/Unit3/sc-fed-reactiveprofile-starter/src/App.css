@@ -30,7 +30,7 @@ header {
 #badge_geek {
   z-index: 999;
   display: block;
-  background: url('../public/badge_geek.png');
+  background: url('/badge_geek.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -38,7 +38,7 @@ header {
 #badge_coder {
   z-index: 500;
   display: block;
-  background: url('../public/badge_coder.png');
+  background: url('/badge_coder.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -59,7 +59,7 @@ header {
 
 #col_right {
   background-repeat: no-repeat;
-  background-image: url('../public/Avatar.png'), url('../public/yellow_shape.png');
+  background-image: url('/Avatar.png'), url('/yellow_shape.png');
 }
 
 #bio {
