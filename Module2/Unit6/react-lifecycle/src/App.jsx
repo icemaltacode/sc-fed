@@ -4,7 +4,7 @@ function CountryDropdown() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
+    fetch("https://restcountries.com/v3.1/all?fields=name")
       .then((res) => res.json())
       .then((data) => setCountries(data.map(({ name }) => name.common)))
   }, []);
