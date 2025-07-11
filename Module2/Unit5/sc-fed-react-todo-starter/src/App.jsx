@@ -1,6 +1,26 @@
 import { useState } from "react";
 import './App.css';
 
+function TodoForm({ listHandler }) {
+  const [newTodo, setNewTodo] = useState("");
+  const [priority, setPriority] = useState("normal");
+
+  return <div className="rounded-container">
+    <h2>Add Todo</h2>
+    <label htmlFor="todoContent">Todo: </label>
+    <input type="text" id="todoContent" onChange={(event) => setNewTodo(event.target.value)}/>
+    <select defaultValue={"normal"} onChange={(event) => setPriority(event.target.value)}>
+      <option value="normal">Normal</option>
+      <option value="high">High</option>
+    </select>
+    <button type="button" className="btn btn-primary" onClick={() => {
+        listHandler(newTodo, priority)
+        document.getElementById('todoContent').value="";
+      } 
+    }>Add</button>
+  </div>
+}
+
 function TodoItem({item, listHandler}) {
   return <li 
     className="list-group-item d-flex justify-content-between align-items-center"
@@ -12,18 +32,6 @@ function TodoItem({item, listHandler}) {
       : ""
     }
   </li>
-}
-
-function FilterButton({active, role, handleClick, children}) {
-  const buttonClass = active ? "btn btn-primary active" : "btn btn-primary";
-
-  return <button 
-    type="button" 
-    className={buttonClass} 
-    style={{margin: '4px'}}
-    onClick={() => handleClick(role)}>
-    {children}
-  </button>
 }
 
 function TodoList({list, listHandler}) {
@@ -72,24 +80,16 @@ function TodoList({list, listHandler}) {
   </div>
 }
 
-function TodoForm({ listHandler }) {
-  const [newTodo, setNewTodo] = useState("");
-  const [priority, setPriority] = useState("normal");
+function FilterButton({active, role, handleClick, children}) {
+  const buttonClass = active ? "btn btn-primary active" : "btn btn-primary";
 
-  return <div className="rounded-container">
-    <h2>Add Todo</h2>
-    <label htmlFor="todoContent">Todo: </label>
-    <input type="text" id="todoContent" onChange={(event) => setNewTodo(event.target.value)}/>
-    <select defaultValue={"normal"} onChange={(event) => setPriority(event.target.value)}>
-      <option value="normal">Normal</option>
-      <option value="high">High</option>
-    </select>
-    <button type="button" className="btn btn-primary" onClick={() => {
-        listHandler(newTodo, priority)
-        document.getElementById('todoContent').value="";
-      } 
-    }>Add</button>
-  </div>
+  return <button 
+    type="button" 
+    className={buttonClass} 
+    style={{margin: '4px'}}
+    onClick={() => handleClick(role)}>
+    {children}
+  </button>
 }
 
 let ITEM_NUM = -1;
