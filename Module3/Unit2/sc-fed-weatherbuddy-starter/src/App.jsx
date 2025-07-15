@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { SearchProvider, SearchBar } from "./search";
 import { WeatherView } from './weather';
-import useLoader from './hook/useLoader';
+import useLoader from './hook/useLoader.jsx';
 
 const Container = styled.div`
   background: #7d32fe;
@@ -21,7 +21,7 @@ function App() {
   });
 
   const onReceiveCoordinates = (coor) => {
-    const appId = process.env.REACT_APP_OPENWEATHER_APP_ID
+    const appId = import.meta.env.VITE_OPENWEATHER_APP_ID
     const endPoint = `https://api.openweathermap.org/data/3.0/onecall?lat=${coor.lat}&lon=${coor.lon}&appid=${appId}&units=metric`;
 
     fetch(endPoint)

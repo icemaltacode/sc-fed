@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import WeatherIcon from './WeatherIcon';
+import WeatherIcon from './WeatherIcon.jsx';
 
 const DayContainer = styled.div`
     display: flex;

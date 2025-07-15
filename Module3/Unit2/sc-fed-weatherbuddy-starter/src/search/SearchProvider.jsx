@@ -1,8 +1,8 @@
-import SearchContext from "./context";
+import SearchContext from "./context.jsx";
 
 function SearchProvider({ locationHandler, children }) {
   const value = {
-    app_id: process.env.REACT_APP_OPENWEATHER_APP_ID,
+    app_id: import.meta.env.VITE_OPENWEATHER_APP_ID,
     locationHandler: locationHandler,
   };
   return <SearchContext.Provider value={value}>{children}</SearchContext.Provider>;

@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import WeatherIcon from './WeatherIcon';
-import { getConditionImage, formatUnixTime, getCardinalDirection } from './util';
-import Forecast from './Forecast';
+import WeatherIcon from './WeatherIcon.jsx';
+import { getConditionImage, formatUnixTime, getCardinalDirection } from './util.jsx';
+import Forecast from './Forecast.jsx';
 
 const ResultContainer = styled.div`
     display: flex;
+    font-family: 'Helvetica', 'Verdana', 'Arial', sans-serif;
     flex-direction: column;
     width: 960px;
     min-height: 400px;

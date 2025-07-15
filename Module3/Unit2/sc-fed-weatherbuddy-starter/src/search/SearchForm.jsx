@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import useLoader from '../hook/useLoader';
-import useSearch from "./useSearch";
+import useLoader from '../hook/useLoader.jsx';
+import useSearch from "./useSearch.jsx";
 
 const SearchInput = styled.input`
     border: 2px dotted #CCCCCC;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SearchForm from './SearchForm';
+import SearchForm from './SearchForm.jsx';
 
 const Container = styled.div`
     display: flex;
@@ -11,6 +11,10 @@ const Container = styled.div`
     box-shadow: 10px 10px 73px -21px rgba(0,0,0,0.68);
     border-radius: 5px;
     padding: 5px;
+`;
+
+const FormContainer = styled.div`
+    
 `;
 
 const Header = styled.h1`

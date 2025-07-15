@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from './ButtonM3';
+import Button from './ButtonM3.jsx';
 
 const CustomButton = styled(Button)`
   background-color: purple;

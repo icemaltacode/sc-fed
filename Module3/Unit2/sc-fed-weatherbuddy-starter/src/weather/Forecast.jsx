@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Day from './Day';
+import Day from './Day.jsx';
 
 const DayList = styled.div`
     display: flex;
