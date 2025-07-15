@@ -1,4 +1,4 @@
-import EmployeeCard from "./EmployeeCard";
+import EmployeeCard from "./EmployeeCard.tsx";
 import './App.css';
 
 const simpleAdder = (num1: number, num2: number) => num1 + num2;
