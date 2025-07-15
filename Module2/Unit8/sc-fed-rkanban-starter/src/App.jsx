@@ -25,18 +25,8 @@ function Column({ colName, colWidth, items, addItemHandler, moveItemHandler, dro
   const [isAddingItem, setIsAddingItem] = useState(false);
   const [newItemContent, setNewItemContent] = useState("");
   const [isItemHovering, setIsItemHovering] = useState(false);
-  const addIcon = isAddingItem ? "bi-dash-circle-fill" : "bi-plus-circle-fill";
 
-  const onSubmit = (evt) => {
-    evt.preventDefault();
-    addItemHandler({
-      uuid: crypto.randomUUID(),
-      column: colName,
-      content: newItemContent
-    });
-    setNewItemContent("");
-    setIsAddingItem(false);
-  }
+  const addIcon = isAddingItem ? "bi-dash-circle-fill" : "bi-plus-circle-fill";
 
   const onDragEnter = evt => {
     setIsItemHovering(true);
@@ -64,6 +54,17 @@ function Column({ colName, colWidth, items, addItemHandler, moveItemHandler, dro
     dropItemHandler(colName);
     evt.preventDefault();
     evt.stopPropagation();
+  }
+
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    addItemHandler({
+      uuid: crypto.randomUUID(),
+      column: colName,
+      content: newItemContent
+    });
+    setNewItemContent("");
+    setIsAddingItem(false);
   }
 
   const columnStyle = {
@@ -98,9 +99,9 @@ function Column({ colName, colWidth, items, addItemHandler, moveItemHandler, dro
     minHeight: "50px",
     backgroundColor: "rgba(179, 170, 0, 0.5)",
   }
-
+  
   return <section 
-    style={columnStyle}
+    style={columnStyle} 
     onDragEnter={evt => onDragEnter(evt)} 
     onDragLeave={evt => onDragLeave(evt)}
     onDragOver={evt => onDragOver(evt)}
@@ -138,12 +139,12 @@ function Column({ colName, colWidth, items, addItemHandler, moveItemHandler, dro
       <Item key={i} uuid={item.uuid}>{item.content}</Item> 
     )}
   </section>
-  
 }
 
 function Board( { columns }) {
   const [items, setItems] = useState([]);
   const [movingItemUuid, setMovingItemUuid] = useState(null);
+
   const colWidth = (window.innerWidth / columns.length) - 10;
 
   const boardStyle = {
@@ -165,7 +166,7 @@ function Board( { columns }) {
         items={items.filter((item) => item.column === column)}
         addItemHandler={(newItem) => setItems([...items, newItem])}
         moveItemHandler={(uuid) => setMovingItemUuid(uuid)}
-        dropItemHandler={moveItemColumn}
+        dropItemHandler={moveItemColumn} 
       />
     )}
   </main>
