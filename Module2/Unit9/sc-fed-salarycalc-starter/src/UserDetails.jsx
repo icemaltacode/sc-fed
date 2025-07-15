@@ -1,38 +1,38 @@
 function UserDetails({ userDetails, changeHandler }) {
-  const onChange = evt => {
-    changeHandler(evt.target);
-  }
-
-  return <div className='rounded-container'>
-    <div className='row g-3 mb-3'>      
-        <div className='col-md-4'>
-            <label htmlFor='salaryYearly' className='form-label'>Yearly Salary</label>
-            <div className='input-group'>
-              <div className='input-group-text'>€</div>
-              <input id='salaryYearly' name='salaryYearly' type='number' className='form-control' onChange={onChange} value={userDetails.salaryYearly} />
-            </div>
-        </div>
-        <div className='col-md-4'>
-            <label htmlFor='salaryMonthly' className='form-label'>Monthly Salary</label>
-            <div className='input-group'>
-              <div className='input-group-text'>€</div>
-              <input id='salaryMonthly' name='salaryMonthly' type='number' className='form-control' onChange={onChange} value={userDetails.salaryMonthly} />
-            </div>
-        </div>
-        <div className='col-md-4'>
-            <label htmlFor='salaryWeekly' className='form-label'>Weekly Salary</label>
-            <div className='input-group'>
-              <div className='input-group-text'>€</div>
-              <input id='salaryWeekly' name='salaryWeekly' type='number' className='form-control' onChange={onChange} value={userDetails.salaryWeekly} />
-            </div>
-        </div>
-    </div>
-    <div className='row g-3 mb-3'>
-      <div className='col-md-4'>
-        <label htmlFor='dob' className='form-label'>Date of Birth</label>
-        <input id='dob' name='dob' type='date' className='form-control' onChange={onChange} value={userDetails.dob.toISOString().split('T')[0]} />
+    const onChange = evt => {
+      changeHandler(evt.target);
+    }
+  
+    return <div className='rounded-container'>
+      <div className='row g-3 mb-3'>      
+          <div className='col-md-4'>
+              <label htmlFor='salaryYearly' className='form-label'>Yearly Salary</label>
+              <div className='input-group'>
+                <div className='input-group-text'>€</div>
+                <input id='salaryYearly' name='salaryYearly' type='number' className='form-control' onChange={onChange} value={userDetails.salaryYearly} />
+              </div>
+          </div>
+          <div className='col-md-4'>
+              <label htmlFor='salaryMonthly' className='form-label'>Monthly Salary</label>
+              <div className='input-group'>
+                <div className='input-group-text'>€</div>
+                <input id='salaryMonthly' name='salaryMonthly' type='number' className='form-control' onChange={onChange} value={userDetails.salaryMonthly} />
+              </div>
+          </div>
+          <div className='col-md-4'>
+              <label htmlFor='salaryWeekly' className='form-label'>Weekly Salary</label>
+              <div className='input-group'>
+                <div className='input-group-text'>€</div>
+                <input id='salaryWeekly' name='salaryWeekly' type='number' className='form-control' onChange={onChange} value={userDetails.salaryWeekly} />
+              </div>
+          </div>
       </div>
-      <div className='col-md-4'>
+      <div className='row g-3 mb-3'>
+        <div className='col-md-4'>
+          <label htmlFor='dob' className='form-label'>Date of Birth</label>
+          <input id='dob' name='dob' type='date' className='form-control' onChange={onChange} value={userDetails.dob.toISOString().split('T')[0]} />
+        </div>
+        <div className='col-md-4'>
           <div className='row'>
             <div className='col'>
               <label className='form-label'>Tax Group</label>
@@ -70,8 +70,8 @@ function UserDetails({ userDetails, changeHandler }) {
             </div>
           </div>
         </div>
+      </div>
     </div>
-  </div>
-}
-
-export default UserDetails;
+  }
+  
+  export default UserDetails;

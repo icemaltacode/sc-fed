@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import UserDetails from './UserDetails';
-import TaxDetails from './TaxDetails';
+import UserDetails from './UserDetails.jsx';
+import TaxDetails from './TaxDetails.jsx';
 
 // SOURCE: https://cfr.gov.mt/en/rates/Pages/TaxRates/Tax-Rates-2023.aspx
 const TAX_RATES = {
@@ -81,14 +81,14 @@ function App() {
         salaryYearly: salaryYearly, 
         salaryMonthly: salaryMonthly, 
         salaryWeekly: salaryWeekly}))
+    } else if (target.name === 'student') {
+      // Student status
+      setUserDetails(oldDetails => ({ ...oldDetails, [target.name]: target.checked }));
     } else if (target.name === 'dob') { 
       // DOB
       const dateParts = target.value.split('-');
       const newDob = new Date(dateParts[0], dateParts[1]-1, dateParts[2], 10, 0, 0);
       setUserDetails(oldDetails => ({ ...oldDetails, [target.name]: newDob }));
-    } else if (target.name === 'student') {
-      // Student status
-      setUserDetails(oldDetails => ({ ...oldDetails, [target.name]: target.checked }));
     } else {
       // Generic handler
       setUserDetails(oldDetails => ({ ...oldDetails, [target.name]: target.value }));
@@ -123,9 +123,13 @@ function App() {
     } else if (userDetails.student) {
       sscCategory = age < 18 ? SSC_RATES['E'] : SSC_RATES['F'];
     }
+
     let sscWeekly = 0;
-    sscWeekly = sscCategory.contribVal ? sscCategory.contribVal : sscCategory.contribPct / 100 * netWeeklySalary;
-    sscWeekly = sscCategory.contribMax ? Math.min(sscWeekly, sscCategory.contribMax) : sscWeekly;
+    if (sscCategory) {
+      sscWeekly = sscCategory.contribVal ? sscCategory.contribVal : sscCategory.contribPct / 100 * netWeeklySalary;
+      sscWeekly = sscCategory.contribMax ? Math.min(sscWeekly, sscCategory.contribMax) : sscWeekly;
+    }
+    
 
     setTaxDetails({
       taxYearly: taxYearly,
