@@ -1,7 +1,7 @@
 import { useEffect, createContext, useContext, useState } from 'react';
-import useToggle from './useToggle';
-import useLoader from './useLoader';
-import { Section, InfoSection } from './section';
+import useToggle from './useToggle.jsx';
+import useLoader from './useLoader.jsx';
+import { Section, InfoSection } from './section.jsx';
 import './App.css';
 
 const AppContext = createContext();
@@ -21,13 +21,6 @@ function Heading({ role = 'primary', children }) {
         {children}
       </h1>
   }
-}
-
-function ColorModeToggle({ toggleHandler }) {
-  const ctx = useContext(AppContext);
-  return <button type='button' onClick={toggleHandler} className='btn btn-secondary float-end'>
-    <i className={ctx.darkMode ? 'bi-sun' : 'bi-moon-stars'}></i>
-  </button>
 }
 
 function SearchBar({ queryHandler }) {
@@ -160,6 +153,13 @@ function ImageDetail() {
   } 
 }
 
+function ColorModeToggle({ toggleHandler }) {
+  const ctx = useContext(AppContext);
+  return <button type='button' onClick={toggleHandler} className='btn btn-secondary float-end'>
+    <i className={ctx.darkMode ? 'bi-sun' : 'bi-moon-stars'}></i>
+  </button>
+}
+
 function App() {
   const [isDarkMode, toggleDarkMode] = useToggle(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -181,6 +181,7 @@ function App() {
           <ColorModeToggle toggleHandler={toggleDarkMode} />
           <Heading>NASA Imager</Heading>
         </Section>
+
         {currentAsset ? 
           <ImageDetail /> :
           <>

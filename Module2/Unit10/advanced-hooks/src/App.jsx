@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import useLoader from './useLoader';
-import useCounter from './useCounter';
+import useLoader from './useLoader.jsx';
+import useCounter from './useCounter.jsx';
 
 function Counter() {
   const [counter, dispatch] = useCounter(0);
@@ -17,7 +17,7 @@ function Counter() {
   </section>
 }
 
-const RC_ENDPOINT = "https://restcountries.com/v3.1/all";
+const RC_ENDPOINT = "https://restcountries.com/v3.1/all?fields=name";
 const INITIAL_STATE = { status: "INITIALIZE", result: null, error: null }
 
 function CountryList() {
