@@ -9,10 +9,6 @@ export default function Column({ state }) {
   const [open, setOpen] = useState(false);
   const [drop, setDrop] = useState(false);
 
-  // const tasks = useStore(
-  //   (store) => store.tasks.filter((task) => task.state === state),
-  //   shallow
-  // );
   const allTasks = useStore(store => store.tasks);
   const tasks = allTasks.filter((task) => task.state === state);
 
