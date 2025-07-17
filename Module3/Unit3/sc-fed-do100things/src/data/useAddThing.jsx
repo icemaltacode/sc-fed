@@ -1,9 +1,7 @@
-import { actions } from "./store.jsx";
-import { useDispatch } from "react-redux";
+import useData from "./useData.jsx";
 
 function useAddThing() {
-  const dispatch = useDispatch();
-  return (name) => dispatch(actions.addThing(name));
+  return useData((state) => state.addThing);
 }
 
 export default useAddThing;

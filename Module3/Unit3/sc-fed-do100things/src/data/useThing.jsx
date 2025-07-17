@@ -1,20 +1,18 @@
-import useData from "./useData.jsx";
-import { actions } from "./store.jsx";
-import { useDispatch } from "react-redux";
+import useData from "./useData";
 
 function useThing(id) {
-  const thing = useData((store) => store.data.things.find((t) => t.id === id));
-  const dispatch = useDispatch();
+  // Get both state and actions at once
+  const { things, seeThing, seeAllThings, doThing, undoThing, removeThing } = useData(state => state);
+  const thing = things.find((t) => t.id === id);
 
   return {
     thing,
-    seeThing: () => dispatch(actions.seeThing(id)),
-    removeThing: () => dispatch(actions.removeThing(id)),
-    doThing: () => dispatch(actions.doThing(id)),
-    seeAllThings: () => dispatch(actions.seeAllThings()),
-    undoThing: (index) => dispatch(actions.undoThing({ id, index })),
-    undoLastThing: () =>
-      dispatch(actions.undoThing({ id, index: thing.done.length - 1 })),
+    seeThing: () => seeThing(id),
+    removeThing: () => removeThing(id),
+    doThing: () => doThing(id),
+    seeAllThings,
+    undoThing: (index) => undoThing(id, index),
+    undoLastThing: () => undoThing(id, thing.done.length - 1),
   };
 }
 

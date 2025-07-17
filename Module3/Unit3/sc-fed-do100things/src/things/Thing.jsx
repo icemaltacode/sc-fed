@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 import { useThing } from "../data";
-import Button from "./Button.jsx";
-import Progress from "./Progress.jsx";
-import ThingTitle from "./ThingTitle.jsx";
+import Button from "./Button";
+import Progress from "./Progress";
+import ThingTitle from "./ThingTitle";
 
 const Section = styled.section`
   border: 2px solid black;

@@ -1,16 +1,7 @@
-import { useEffect } from "react";
-import { store, STORAGE_KEY } from "./store.jsx";
-import { Provider } from "react-redux";
+import "./useData.jsx";
 
 function DataProvider({ children }) {
-  useEffect(
-    () =>
-      store.subscribe(() =>
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(store.getState().data))
-      ),
-    []
-  );
-  return <Provider store={store}>{children}</Provider>;
+  return children;
 }
 
 export default DataProvider;

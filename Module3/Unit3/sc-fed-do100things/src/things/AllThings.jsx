@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { useAllThings } from "../data";
 import Thing from "./Thing.jsx";
-import AddAThing from "./AddAThing.jsx";
+import AddAThing from "./AddAThing";
 
 const Main = styled.main`
   display: flex;
@@ -17,8 +17,8 @@ function AllThings() {
   return (
     <Main>
       <h1>All my things</h1>
-      {things.map((id) => (
-        <Thing id={id} key={id} />
+      {things.map((thing) => (
+        <Thing id={thing.id} key={thing.id} />
       ))}
       <AddAThing />
     </Main>
