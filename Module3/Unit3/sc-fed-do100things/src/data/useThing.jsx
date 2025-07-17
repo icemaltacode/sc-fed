@@ -1,4 +1,4 @@
-import useData from "./useData";
+import useData from "./useData.jsx";
 
 function useThing(id) {
   // Get both state and actions at once
