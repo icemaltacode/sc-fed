@@ -17,8 +17,8 @@ function AllThings() {
   return (
     <Main>
       <h1>All my things</h1>
-      {things.map((thing) => (
-        <Thing id={thing.id} key={thing.id} />
+      {things.map((id) => (
+        <Thing id={id} key={id} />
       ))}
       <AddAThing />
     </Main>

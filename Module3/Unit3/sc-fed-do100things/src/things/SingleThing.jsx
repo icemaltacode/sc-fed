@@ -64,10 +64,10 @@ function SingleThing({ id }) {
     seeAllThings,
     doThing,
     removeThing,
+    undoLastThing,
     undoThing,
   } = useThing(id);
 
-  const undoLastThing = () => thing.done.length > 0 ? undoThing(thing.done.length - 1) : undefined;
   return (
     <Main>
       <Header>
