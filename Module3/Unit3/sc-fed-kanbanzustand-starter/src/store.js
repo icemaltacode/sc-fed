@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 const store = (set) => ({
   tasks: [{ title: "TestTask", state: "ONGOING" }],
@@ -12,8 +13,10 @@ const store = (set) => ({
   setDraggedTask: (title) => set({ draggedTask: title }),
   moveTask: (title, state) =>
     set((store) => ({
-      tasks: store.tasks.map((task) => (task.title === title ? { title, state } : task)),
+      tasks: store.tasks.map((task) =>
+        task.title === title ? { title, state } : task
+      ),
     })),
 });
 
-export const useStore = create(store);
+export const useStore = create(persist(store, { name: "kanban-storage" }));

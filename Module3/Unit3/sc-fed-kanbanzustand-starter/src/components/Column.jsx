@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { shallow } from "zustand/shallow";
 import classNames from "classnames";
 import Task from "./Task";
 import { useStore } from "../store";
@@ -10,10 +9,12 @@ export default function Column({ state }) {
   const [open, setOpen] = useState(false);
   const [drop, setDrop] = useState(false);
 
-  const tasks = useStore(
-    (store) => store.tasks.filter((task) => task.state === state),
-    shallow
-  );
+  // const tasks = useStore(
+  //   (store) => store.tasks.filter((task) => task.state === state),
+  //   shallow
+  // );
+  const allTasks = useStore(store => store.tasks);
+  const tasks = allTasks.filter((task) => task.state === state);
 
   const setDraggedTask = useStore(store => store.setDraggedTask);
   const moveTask = useStore(store => store.moveTask);
@@ -31,7 +32,7 @@ export default function Column({ state }) {
         setDrop(false);
         e.preventDefault();
       }}
-      onDrop={e => {
+      onDrop={() => {
         setDrop(false);
         moveTask(draggedTask, state)
         setDraggedTask(null);
