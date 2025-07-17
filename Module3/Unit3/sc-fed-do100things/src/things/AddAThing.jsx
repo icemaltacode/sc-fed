@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import { useAddThing } from "../data";
-import Button from "./Button";
+import Button from "./Button.jsx";
 
 const Form = styled.form`
   display: flex;

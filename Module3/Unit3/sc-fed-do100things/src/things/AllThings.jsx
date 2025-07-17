@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import { useAllThings } from "../data";
-import Thing from "./Thing";
-import AddAThing from "./AddAThing";
+import Thing from "./Thing.jsx";
+import AddAThing from "./AddAThing.jsx";
 
 const Main = styled.main`
   display: flex;

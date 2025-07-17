@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { useThisThing } from "../data";
-import Button from "./Button";
-import RemoveButton from "./RemoveButton";
-import Grid from "./Grid";
+import { useThing } from "../data";
+import Button from "./Button.jsx";
+import RemoveButton from "./RemoveButton.jsx";
+import Grid from "./Grid.jsx";
 
 const Main = styled.main`
   display: flex;
@@ -66,7 +66,7 @@ function SingleThing({ id }) {
     removeThing,
     undoLastThing,
     undoThing,
-  } = useThisThing(id);
+  } = useThing(id);
   return (
     <Main>
       <Header>

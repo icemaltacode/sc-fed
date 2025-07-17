@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-import Button from "./Button";
+import Button from "./Button.jsx";
 
 const Wrapper = styled.div`
   display: flex;

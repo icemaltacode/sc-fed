@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { useThatThing } from "../data";
-import Button from "./Button";
-import Progress from "./Progress";
-import ThingTitle from "./ThingTitle";
+import { useThing } from "../data";
+import Button from "./Button.jsx";
+import Progress from "./Progress.jsx";
+import ThingTitle from "./ThingTitle.jsx";
 
 const Section = styled.section`
   border: 2px solid black;
@@ -24,7 +24,7 @@ const Body = styled.div`
 `;
 
 function Thing({ id }) {
-  const { thing, seeThing, doThing, undoLastThing } = useThatThing(id);
+  const { thing, seeThing, doThing, undoLastThing } = useThing(id);
   return (
     <Section>
       <ThingTitle

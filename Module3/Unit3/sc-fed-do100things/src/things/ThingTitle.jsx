@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button from "./Button";
+import Button from "./Button.jsx";
 
 const Title = styled.h3`
   margin: 0;
