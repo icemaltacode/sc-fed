@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRef } from "react";
 import { createPost } from "./api/posts";
-import Post from "./Post";
+import Post from './Post.jsx';
 
 export function CreatePost({ setCurrentPage }) {
   const titleRef = useRef();
@@ -11,9 +11,9 @@ export function CreatePost({ setCurrentPage }) {
   const createPostMutation = useMutation({
     mutationFn: createPost,
     onSuccess: data => {
-      queryClient.setQueryData(['posts', data.id], data)
-      queryClient.invalidateQueries(['posts'], { exact: true });
-      setCurrentPage(<Post id={data.id} />)
+        queryClient.setQueryData( ['posts', data.id], data)
+        queryClient.invalidateQueries(['posts'], { exact: true });
+        setCurrentPage(<Post id={data.id} />)
     }
   });
 

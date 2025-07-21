@@ -16,7 +16,6 @@ function App() {
   const handleRegisterUser = (userId, userName) => {
     setUserId(userId);
     setUserName(userName);
-    console.log(userId);
   }
 
   return (

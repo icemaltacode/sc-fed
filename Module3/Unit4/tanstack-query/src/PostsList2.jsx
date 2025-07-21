@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { getPosts } from "./api/posts"
 
-export default function PostsList1() {
+export default function PostsList2() {
   const postsQuery = useQuery({
     queryKey: ["posts"],
     queryFn: getPosts,

@@ -5,7 +5,8 @@ export default function PostsList1() {
   const postsQuery = useQuery({
     queryKey: ["posts"],
     queryFn: getPosts,
-    refetchInterval: 1000
+    refetchInterval: 1000,
+    placeholderData: [{ id: 1, title: "Initial Data" }],
   })
 
   if (postsQuery.status === "loading") return <h1>Loading...</h1>

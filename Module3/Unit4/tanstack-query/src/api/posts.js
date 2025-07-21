@@ -18,7 +18,7 @@ export function createPost({ title, body }) {
       userId: 1,
       id: Date.now(),
     })
-    .then((res) => res.data);
+    .then(res => res.data)
 }
 
 export function getPostsPaginated(page) {
