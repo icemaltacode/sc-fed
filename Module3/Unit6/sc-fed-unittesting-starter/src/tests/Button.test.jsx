@@ -26,3 +26,4 @@ describe("Button component", () => {
     expect(button.style.backgroundColor).toBe("rgb(51, 51, 51)");
   });
 });
+

@@ -3,7 +3,7 @@
 html, body {
   background: linear-gradient(120deg, #0011a9, #49039d, #630092, #750087, #82067d, #8a1675, #90256d, #943268);
   background-size: 100vw 100vh;
-  margin: 0;
+  margin: 20px;
   font-family: Helvetica, sans-serif;
   color: white;
 }

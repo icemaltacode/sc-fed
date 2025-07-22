@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import "@testing-library/jest-dom";
 import WhereAmI from "../components/WhereAmI";
+import { vi, describe, test, expect } from "vitest";
+
 function setup() {
-  const mockAPI = jest.fn();
+  const mockAPI = vi.fn();
   global.navigator.geolocation = { getCurrentPosition: mockAPI };
   render(<WhereAmI />);
   const button = () => screen.getByRole("button");

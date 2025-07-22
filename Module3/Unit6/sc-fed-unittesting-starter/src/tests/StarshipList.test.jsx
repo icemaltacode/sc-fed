@@ -1,11 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import axios from "axios";
 import StarshipList from "../components/StarshipList";
+import { vi, describe, test, expect } from "vitest";
 
-jest.mock("axios", () => {
+vi.mock("axios", () => {
   return {
-    get: jest.fn(),
+    default: {
+      get: vi.fn(),
+    },
   };
 });
 
@@ -18,6 +20,7 @@ describe("StarshipList component", () => {
     const heading = screen.getByRole("heading", { name: "Loading..." });
     expect(heading).toBeInTheDocument();
   });
+
   test("should show an error message if the request fails", async () => {
     // ARRANGE
     axios.get.mockImplementationOnce(() =>
@@ -30,6 +33,7 @@ describe("StarshipList component", () => {
     });
     expect(heading).toBeInTheDocument();
   });
+
   test("should show a list of ships when all goes well", async () => {
     // ARRANGE
     axios.get.mockImplementationOnce(() =>

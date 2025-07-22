@@ -28,7 +28,7 @@ function App() {
       <hr />
 
       {/* Scenario 3 */}
-      <h2>Sceanrio 3</h2>
+      <h2>Scenario 3</h2>
       <Counter start={5} />
       <hr />
       

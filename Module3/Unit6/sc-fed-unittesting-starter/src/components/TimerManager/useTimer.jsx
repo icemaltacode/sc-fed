@@ -1,5 +1,5 @@
 import { useMemo, useEffect } from 'react';
-import useReduction from "use-reduction";
+import { useReducer } from 'react';
 
 const reducer = {
   play: (state) =>
@@ -36,18 +36,26 @@ function useTimer(initialRemaining) {
     isRunning: false,
     isCompleted: false, 
   }), [initialRemaining]);
-  const [state, actions] = useReduction(initialState, reducer);
+  const [state, dispatch] = useReducer((state, action) => reducer[action](state), initialState);
 
   useEffect(() => {
     if (!state.isRunning) {
       return;
     }
 
-    const interval = setInterval(() => actions.tick(), 1000);
+    const interval = setInterval(() => dispatch('tick'), 1000);
     return () => clearInterval(interval);
-  }, [state.isRunning, actions]);
+  }, [state.isRunning, dispatch]);
   
-  return { state, actions };
+  return {
+    state,
+    actions: {
+      play: () => dispatch('play'),
+      pause: () => dispatch('pause'),
+      restart: () => dispatch('restart'),
+      tick: () => dispatch('tick'),
+    }
+  };
 }
 
 export default useTimer;
